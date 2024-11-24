@@ -1,4 +1,5 @@
 Para que funcione, ponga las carpetas backend y frontend en la primera carpeta que aparece al abrir la consola.<br>
+La carpeta backend tiene sólo index.js y frontend tiene solo index.html. En la carpeta backend son generados automáticamente archivos HTML que son descripciones de los temas de Reddit que están en reddit.com/reddits.json. La carpeta frontend incluye sólo index.html.<br>
 Descargue Nodejs. En esa misma carpeta y en la consola, instale los node_modules:<br>
 <code>npm i express</code>, <code>npm i fs</code>, <code>npm i cors</code> y <code>npm I mysql</code><br>
 CORS es para permitir al backend localhost:3000 sólo el acceso del frontend 127.0.0.1:5500 como está en backend/index.js.<br>
