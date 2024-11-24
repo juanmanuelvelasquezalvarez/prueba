@@ -39,7 +39,7 @@ router.get('/carga',cors,async(_,res)=>{//Cargar los datos del REST de Reddit
 })
 router.get('/tema/:id',cors,(req,res)=>{//Ver el HTML de cada tema de Reddit
   fs.readFile(`${req.params.id}.html`,(err,data)=>{
-    if(err) res.status(404).json(err)
+    if(err) return res.status(404).json(err)
     else res.write(data)
     return res.end()
   })
