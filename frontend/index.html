@@ -5,28 +5,43 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script>
     function d(s){document.getElementById("descripcion").innerHTML=s}
-    var app=angular.module('myApp',[])
-    app.controller('myCtrl', function($scope, $http){
-      $http.get("http://localhost:3000").then(r=>{
-        $scope.temas=r.data//Los datos que ya estaban en la tabla de la base de datos
-        d("")
-      }).catch(r=>d(r.data))
+    function e(v){
+      d('<h1>Hubo un error. Revise la consola</h1>')
+      console.log(v)
+    }
+    let app=angular.module('app',[])
+    let r="http://localhost:3000"
+    app.controller('ctrl',($scope, $http)=>{
+      $http.get(r).then(v=>{//Los datos que ya estaban en la tabla de la base de datos
+        if(v.status==200){//Correcto
+          $scope.temas=v.data
+          d("")
+        }else{
+          $scope.temas=[]
+          e(v)
+        }
+      }).catch(v=>e(v))//Error
       $scope.carga=()=>{//Sobrescribir la tabla de la base de datos con los temas de Reddit
         d("<h1>Cargando. Espere.</h1>")
-        $http.get("http://localhost:3000/carga").then(r=>{
-          $scope.temas=r.data
-          d("")
-        }).catch(r=>d(r.data))
+        $http.get(`${r}/carga`).then(v=>{
+          if(v.status==200){
+            $scope.temas=v.data
+            d("")
+          }else{
+            $scope.temas=[]
+            e(v)
+          }
+        }).catch(v=>e(v))
       }
       $scope.tema=o=>{//Ver el HTML de cada tema de Reddit
         d("<h1>Cargando. Espere.</h1>")
-        $http.get(`http://localhost:3000/tema/${o.t.id}`).then(r=>d(r.data)).catch(r=>d(r.data))
+        $http.get(`${r}/tema/${o.t.id}`).then(v=>d(v.data)).catch(v=>e(v))
       }
     })
   </script>
 </head>
 <body>
-  <div ng-app="myApp" ng-controller="myCtrl">
+  <div ng-app="app" ng-controller="ctrl">
     <div style="text-align:center"><button ng-click="carga()">Cargar</button></div><br>
     <button ng-repeat="t in temas" ng-click="tema(this)">{{t.titulo}}</button>
     <div id="descripcion"><h1>Cargando. Espere.</h1></div>
