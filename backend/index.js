@@ -29,8 +29,9 @@ router.get('/',cors,(_,res)=>{//Ver los datos que ya están en la tabla
 router.get('/carga',cors,async(_,res)=>{//Cargar los datos del REST de Reddit
   temas=(await (await fetch("http://localhost/reddit.json")).json()).data.children.map(m=>[
     m.data.display_name, m.data.title.replaceAll("'","COMILLA"),//Para insertar en la tabla
-    m.data.description_html.replaceAll('&amp;','&').replaceAll('&lt;','<')
-    .replaceAll('&gt;','>').replaceAll('\\"','"').replaceAll('\\r\\n','<br>').replaceAll('\\n','<br>')
+    m.data.description_html.replaceAll('&amp;','&').replaceAll('&amp;','&').replaceAll('&lt;','<')
+    .replaceAll('&gt;','>').replaceAll('>>','>').replaceAll('<<','<').replaceAll('<!-- SC_OFF -->','')
+    .replaceAll('\r\n\r\n','\n').replaceAll('\r\n\r\n','\n').replaceAll('\n\n','\n').replaceAll('\n\n','\n')
   ])//Reinciciar la inserción de datos
   c.query("DELETE FROM Tema",err=>{
     if(err) res.status(404).json(err)
