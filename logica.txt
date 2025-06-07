@@ -1,0 +1,16 @@
+Ejercicio 1: 1d 2b 3c 4c
+
+Ejercicio 2
+Hopótesis
+(1) A, B, C, D, E = artista, medico, deportista, periodista, juez
+(2) A, C, juez -> te
+(3) B, periodista -> cafe
+(4) 2 de A, D, deportista -> cafe
+(5) C no es artista
+Descarte
+(6 de 2 y 4) D, deportista -> cafe
+(7 de 1, 2, 3, 6) (A=artista o A=medico) y (C=artista o C=medico)
+(8 de 5, 7) C=medico y A=artista
+(9 de 3, 6, 8) B=deportista y D=periodista
+(10 de 2, 8, 9) E=juez
+Entre las opciones a-e, la respuesta es ninguno de los anteriores. La respuesta es A-C como dice (ii)
