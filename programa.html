@@ -46,13 +46,7 @@ function o(){
 		}
 	}
 	e("p").innerHTML='Óptimo '+optimo
-	var s='Combinaciones '
-	for(var c of conjuntos) if(c.length>0){
-		s+='['
-		for(var i of c) s+=i+','
-		s=s.substring(0,s.length-1)+']'
-	}
-	console.log(s)
+	console.log('conjuntos='+JSON.stringify(conjuntos))
 }
 </script>
 </body>
