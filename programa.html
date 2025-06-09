@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<title>Prueba</title>
-    <meta charset="UTF-8">
-</head>
+<head><title>Prueba</title><meta charset="UTF-8"></head>
 <body>
 <label for="p0">Peso máximo</label><br>
 <input type="number" id="p0"><br>
 <label for="c0">Mínimo de cal</label><br>
 <input type="number" id="c0"><br><br>
-<button onclick="b1()">Añadir</button>
-<button onclick="b2()">Quitar último</button>
-<button onclick="b3()">Óptimo</button>
-<p id="p"></p><div id="d"></div>
+<button onclick="a()">Añadir</button>
+<button onclick="if(l>0) e(`d${l--}`).remove()">Quitar último</button>
+<button onclick="o()">Óptimo</button>
+<p id="p"></p>
 <script>
 var l=0
-function b1(){
+var e=s=>document.getElementById(s)
+var f=s=>parseFloat(e(s).value)
+function a(){
 	var d=document.createElement("div")
 	d.id=`d${++l}`
 	d.innerHTML=`<label>Elemento ${l}</label><br>
@@ -23,38 +22,30 @@ function b1(){
 	<input type="number" id="p${l}"><br>
 	<label for="c${l}">Cal</label><br>
 	<input type="number" id="c${l}"><br>`
-	document.getElementById("d").appendChild(d)
+	document.body.appendChild(d)
 }
-function b2(){if(l>0) document.getElementById(`d${l--}`).remove()}
-var f=s=>parseFloat(document.getElementById(s).value)
-function b3(){
+function o(){
 	for(var i=0;i<=l;i++) for(var j of 'pc'){
 		var n=f(j+i)
 		if(isNaN(n)||(j=='p'?n<=0:n<0)){
-			document.getElementById("p").innerHTML=`Error. ${j=='p'?'Pes':'Cal 0 '}o positivo:
+			e("p").innerHTML=`Error. ${j=='p'?'Pes':'Cal 0 '}o positivo:
 			 ${i==0?j=='p'?'Máximo':'Mínimo':`Elemento ${i}`}`
 			return
 		}
 	}
 	var conjuntos=[[]]//Hallé la siguiente línea mediante un cálculo
 	for(var i=1;i<=l;i++) conjuntos=conjuntos.concat(conjuntos.map(c=>c.concat([i])))
-	var maxp=f("p0")
-	var minc=f("c0")
+	var m=[f("p0"),f("c0")]
 	var optimo=[]
-	var m=maxp
 	for(var c of conjuntos){
-		var peso=0
-		var cal=0
-		for(var i of c){
-			peso+=f('p'+i)
-			cal+=f('c'+i)
-		}
-		if(cal>minc&&peso<m){
+		var v=[0,0]
+		for(var i of c) v=[v[0]+f('p'+i),v[1]+f('c'+i)]
+		if(v[0]<m[0]&&v[1]>m[1]){
 			optimo=c
-			m=peso
+			m[0]=v[0]
 		}
 	}
-	document.getElementById("p").innerHTML='Óptimo '+optimo
+	e("p").innerHTML='Óptimo '+optimo
 	var s='Combinaciones '
 	for(var c of conjuntos) if(c.length>0){
 		s+='['
