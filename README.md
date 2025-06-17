@@ -7,11 +7,11 @@ Hipótesis<ol>
 <li>2 de A, D, deportista -> cafe</li>
 <li>C no es artista</li>
 </ol>Descarte<br><br>
-  6 de 2 y 4. D, deportista -> cafe<br>
-  7 de 1, 2, 3, 6. (A=artista o A=medico) y (C=artista o C=medico)<br>
-  8 de 5, 7. C=medico y A=artista<br>
-  9 de 3, 6, 8. B=deportista y D=periodista<br>
-  10 de 2, 8, 9. E=juez<br>
+6 de 2 y 4. D, deportista -> cafe<br>
+7 de 1, 2, 3, 6. (A=artista o A=medico) y (C=artista o C=medico)<br>
+8 de 5, 7. C=medico y A=artista<br>
+9 de 3, 6, 8. B=deportista y D=periodista<br>
+10 de 2, 8, 9. E=juez<br>
 Entre las opciones a-e, la respuesta es ninguno de los anteriores. La respuesta es A-C como dice (ii)<br>
 Este programa, al carecer de framework, no requiere conexión a Internet para funcionar.<br><br>
 El PDF muestra como resultado óptimo 1,2,4, pero el verdadero es 2,4,5, no por un error en el programa sino porque cumple el requisito de no tener menos calorías que las ingresadas y pesando lo menos posible.
