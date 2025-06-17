@@ -1,11 +1,26 @@
-Este programa, al carecer de framework, no requiere conexión a Internet para funcionar.<br>
-El PDF muestra como resultado óptimo 1,2,4, pero el verdadero es 2,4,5, no por un error en el programa sino porque cumple el requisito de no tener menos calorías que las ingresadas y pesando lo menos posible.
-<h3>Uso de GitHub</h3>
+Ejercicio 1: 1d 2b 3c 4c<br><br>
+Ejercicio 2<br>
+Hopótesis<br>
+(1) A, B, C, D, E = artista, medico, deportista, periodista, juez<br>
+(2) A, C, juez -> te<br>
+(3) B, periodista -> cafe<br>
+(4) 2 de A, D, deportista -> cafe<br>
+(5) C no es artista<br>
+Descarte<br>
+(6 de 2 y 4) D, deportista -> cafe<br>
+(7 de 1, 2, 3, 6) (A=artista o A=medico) y (C=artista o C=medico)<br>
+(8 de 5, 7) C=medico y A=artista<br>
+(9 de 3, 6, 8) B=deportista y D=periodista<br>
+(10 de 2, 8, 9) E=juez<br>
+Entre las opciones a-e, la respuesta es ninguno de los anteriores. La respuesta es A-C como dice (ii)<br>
+Este programa, al carecer de framework, no requiere conexión a Internet para funcionar.<br><br>
+El PDF muestra como resultado óptimo 1,2,4, pero el verdadero es 2,4,5, no por un error en el programa sino porque cumple el requisito de no tener menos calorías que las ingresadas y pesando lo menos posible.<br><br>
+<h3>Uso de GitHub</h3><br>
 <ol>
 <li>Inscribí en GitHub una cuenta con nombre de usuario juanmanuelvelasquezalvarez</li>
 <li>Descargué Visual Studio Code.</li>
 <li>Descargué GIT.</li>
-<li>Carpeta “prueba” con logica.txt, programa.html y README.md.</li>
+<li>Carpeta “prueba” con programa.html y README.md.</li>
 <li>Abrí “prueba” con VS Code.</li>
 <li>Abrí la aplicación “Git Bash”.</li>
 <li>Comandos <code>git config --global user.name juanmanuelvelasquezalvarez</code> y <code>git config --global user.email velasquezalvarezjuanmanuel@gmail.com</code></li>
